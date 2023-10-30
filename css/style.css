@@ -16,6 +16,10 @@ body{
     height: 100vh;
 }
 
+main{
+    height: calc(100% - 80px);
+}
+
 .ms_square-100{
     width: calc(100% / 10);
     aspect-ratio: 1;

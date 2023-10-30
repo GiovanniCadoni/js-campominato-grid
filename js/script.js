@@ -1,7 +1,5 @@
 //Impostiamo come variabili globali i dati che dovrebbero essere indispensabili per tutto il programma
-const options = document.getElementById("difficult");
-const difficult = options.selectedIndex;
-console.log(difficult);
+
 
 const square = document.querySelector(".row");
 console.log(square);
@@ -10,11 +8,15 @@ const btnStart = document.getElementById("start");
 console.log(btnStart);
 
 //Richiamiamo la funziona per creare la griglia
-btnStart.addEventListener("click", makeGrid(difficult));
+btnStart.addEventListener("click", makeGrid);
 
 //Funzione per creare la nostra griglia
-function makeGrid(difficult)
+function makeGrid()
 {
+    const options = document.getElementById("difficult");
+    const difficult = options.selectedIndex;
+    console.log(difficult);
+
     if(difficult === 1)
     {
         for(let i = 0; i < 100; i++)
