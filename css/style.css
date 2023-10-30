@@ -13,7 +13,7 @@ header > img{
 
 body{
     background-color: cornflowerblue;
-    min-height: 300px;
+    height: 100vh;
 }
 
 .ms_square-100{
@@ -36,7 +36,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
     font-weight: bolder;
 }
 
@@ -48,6 +48,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
     font-weight: bolder;
+}
+
+.ms_bg-light{
+    background-color:aqua;
 }

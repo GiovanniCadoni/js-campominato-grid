@@ -3,6 +3,9 @@ const options = document.getElementById("difficult");
 const difficult = options.selectedIndex;
 console.log(difficult);
 
+const square = document.querySelector(".row");
+console.log(square);
+
 const btnStart = document.getElementById("start");
 console.log(btnStart);
 
@@ -14,56 +17,78 @@ function makeGrid(difficult)
 {
     if(difficult === 1)
     {
-        const square = document.querySelector(".row");
-        console.log(square);
-
-        let number;
-        let grid = "";
-
         for(let i = 0; i < 100; i++)
         {
-            number = i + 1;
+            let number = i + 1;
 
-            grid += `<div class="ms_square-100"><button id="choice-cell">${number}</button></div>`;
+            //Richiamiamo la funzione per la creazione della griglia
+            const cell = generateCell100(number);
+            //Richiamiamo la funzione che si occuperà di colorare la casella al click
+            cell.addEventListener("click", colorCell);
+
+            square.append(cell);
         }
 
-        square.innerHTML = grid;
     } else if (difficult === 2)
     {
-        const square = document.querySelector(".row");
-        console.log(square);
-
-        let number;
-        let grid = "";
-
         for(let i = 0; i < 81; i++)
         {
             number = i + 1;
 
-            grid += `<div class="ms_square-81"><button id="choice-cell">${number}</button></div>`;
+            //Richiamiamo la funzione per la creazione della griglia
+            const cell = generateCell81(number);
+            //Richiamiamo la funzione che si occuperà di colorare la casella al click
+            cell.addEventListener("click", colorCell);
+
+            square.append(cell);
         }
 
-        square.innerHTML = grid;
     } else if (difficult === 3)
     {
-        const square = document.querySelector(".row");
-        console.log(square);
-
-        let number;
-        let grid = "";
-
         for(let i = 0; i < 49; i++)
         {
             number = i + 1;
 
-            grid += `<div class="ms_square-49"><button id="choice-cell">${number}</button></div>`;
+            //Richiamiamo la funzione per la creazione della griglia
+            const cell = generateCell49(number);
+            //Richiamiamo la funzione che si occuperà di colorare la casella al click
+            cell.addEventListener("click", colorCell);
+
+            square.append(cell);
         }
 
-        square.innerHTML = grid;
     }
 
 };
 
+//Funzioni per creare i tipi di celle
+function generateCell100(number)
+{
+    const newCell = document.createElement("button");
+    newCell.classList.add("ms_square-100");
+    newCell.innerHTML = number;
+    return newCell;
+}
 
+function generateCell81(number)
+{
+    const newCell = document.createElement("button");
+    newCell.classList.add("ms_square-81");
+    newCell.innerHTML = number;
+    return newCell;
+}
 
+function generateCell49(number)
+{
+    const newCell = document.createElement("button");
+    newCell.classList.add("ms_square-49");
+    newCell.innerHTML = number;
+    return newCell;
+}
 
+//Funzione che colora le celle cliccate
+function colorCell()
+{
+   this.classList.add("ms_bg-light");
+   console.log(this.innerText);
+}
